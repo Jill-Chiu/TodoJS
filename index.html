@@ -19,19 +19,21 @@
             console.log(todoInput);
             if (todoInput !=='') {
                 var todo = document.createElement('li'); //建立標籤
-                todo.innerHTML = todoInput+' <button>x</button>';
+                todo.innerHTML = todoInput+' <button id="btn" type="button">x</button>';
                 result.appendChild(todo); //加上子元素
                 document.getElementById('todo-input').value ='';
             } else {
                 alert('請輸入值');
             }
-        result.addEventListener('click',function(e)
+        });
+            result.addEventListener('click',function(e)
             {
-                //console.log(e.target);//點擊的項目buttn
-                //console.log(e.target.parentNode);//找到子元素
-                console.log(e.target.parentNode.parentNode);//找到(子元素)父親
-                e.target.parentNode.parentNode.removeChild(e.target.parentNode);//移除子元素
-            })
+                if(e.target.id==="btn"){
+                    console.log(e.target);//點擊的項目buttn,e.terget==x
+                    //console.log(e.target.parentNode);//找到子元素li
+                    console.log(e.target.parentNode.parentNode);//找到(子元素)父親 ul
+                    e.target.parentNode.parentNode.removeChild(e.target.parentNode);//移除子元素li
+                }
         });
     </script>
 </body>
